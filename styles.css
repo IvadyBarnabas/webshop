@@ -12,30 +12,49 @@ body {
     padding: 20px;
     text-align: center;
   }
+  header img{
+    max-width: 30%;
+  }
   
   header h1 {
     margin: 0;
+    border-radius: 10px;
     color: red;
-    font-size: 2.5em;
+    font-size: 60px;
+    text-shadow: 4px 1px 2px rgba(0,0,0,0.6);
+    font-family: "Big Shoulders Stencil", sans-serif;
   }
   main{
     display: grid;
     grid-template-columns: 2fr 1fr;
-    gap:20px
+    gap:20px;
+    background: linear-gradient(to right, #ff0000, #000000);
   }
-  article{
+  .termekek{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
   }
+  article{
+    padding: 20px;
+    font-size: 30px;
+    color: red;
+    background-color: white;
+  }
+  aside{
+    background-color: white;
+    font-size: 30px;
+    padding: 20px;
+  }
   .product {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.5);
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     object-fit: cover;
     margin: 10px;
+    font-size: 70%;
 }
 .product img {
     max-width: 100%;
@@ -66,6 +85,7 @@ body {
   
   h2 {
     color: red;
+    font-family: "Big Shoulders Stencil", sans-serif;
   }
   
   p {
@@ -84,12 +104,29 @@ button:hover{
     background: darkred;
 }
   
-  footer {
+footer {
     background-color: black;
     color: white;
     text-align: center;
     padding: 10px;
-    position: fixed;
     width: 100%;
     bottom: 0;
   }
+#symbiote:hover{
+    content: url('kepek/pók1.png');
+}
+#antivenom:hover{
+    content: url('kepek/pók2.png');
+}
+#milesmorales:hover{
+    content: url('kepek/pók3.png');
+}
+#americamiles:hover{
+    content: url('kepek/pók4.png');
+}
+#armoredmiles:hover{
+    content: url('kepek/pók5.png');
+}
+#blackcat:hover{
+    content: url('kepek/blackcat.png');
+}            
