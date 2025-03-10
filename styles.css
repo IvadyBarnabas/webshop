@@ -129,4 +129,9 @@ footer {
 }
 #blackcat:hover{
     content: url('kepek/blackcat.png');
-}            
+}
+@media screen and (max-width: 1000px) {
+  .termekek {
+      grid-template-columns: 1fr;
+  }
+}
