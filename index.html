@@ -15,68 +15,116 @@
         <img src="kepek/title.png" alt="title">
         <h1>FIGURE-SHOP</h1>
         <nav>
-<a href="#termekek">Termékek</a>
-<a href="#kapcsolat">Kapcsolat</a>
-        </nav>
-    </header>
+            <a href="#termekek">Termékek</a>
+            <a href="#kapcsolat">Kapcsolat</a>
+        </nav>       
+    </header>   
         <main>
             <article>
                 <h2>Termékek:</h2>
                 <div class="termekek">
-                    <div class="product">
+                    <div class="product" data-category="in-stock"data-id="1" data-name="Symbioted Spider-man" data-price="13990">
+                        <p class="availability in-stock">Raktáron</p>
                         <img id="symbiote" src="kepek/pók1figure.png" alt="Pókember" />
                         <h2>Symbioted Spider-man</h2>
                         <p>Kattints a leíráshoz.</p>
-                        <span class="price">13990 Ft</span>
-                        <button>Kosárba</button>
-                    </div>
-                    <div class="product">
+                        <p class="price">13990 Ft</p>
+                        <button class="button add-to-cart">Kosárba</button>
+                    </div>                        
+                    <div class="product" data-category="pre-order"data-id="2" data-name="Antivenom Suit Spider-man" data-price="13990">
+                        <p class="availability pre-order">Előrendelhető</p>
                         <img id="antivenom" src="kepek/pók2figure.png" alt="Pókember" />
                         <h2>Anti Venom Spider-man</h2>
                         <p>Kattints a leíráshoz.</p>
-                        <span class="price">13990 Ft</span>
-                        <button>Kosárba</button>
+                        <p class="price">13990 Ft</p>
+                        <button class="button add-to-cart">Kosárba</button>
                     </div>
-                    <div class="product">
+                    <div class="product" data-category="out-of-stock"data-id="3" data-name="Colored Miles" data-price="13990">
+                        <p class="availability out-of-stock">Kifutott termék</p>
                         <img id="milesmorales" src="kepek/pók3figure.png" alt="Pókember" />
                         <h2>Colored Miles Morales</h2>
                         <p>Kattints a leíráshoz.</p>
-                        <span class="price">13990 Ft</span>
-                        <button>Kosárba</button>
-                    </div>
-                    <div class="product">
+                        <p class="price">13990 Ft</p>
+                        <button class="button add-to-cart">Kosárba</button>
+                    </div>    
+                    <div class="product" data-category="pre-order"data-id="4" data-name="America Suit Miles" data-price="13990">
+                        <p class="availability pre-order">Előrendelhető</p>
                         <img id="americamiles" src="kepek/pók4figure.png" alt="Pókember" />
                         <h2>America Suit Miles Morales</h2>
                         <p>Kattints a leíráshoz.</p>
-                        <span class="price">13990 Ft</span>
-                        <button>Kosárba</button>
+                        <p class="price">13990 Ft</p>
+                        <button class="button add-to-cart">Kosárba</button>
                     </div>
-                    <div class="product">
+                    <div class="product" data-category="in-stock"data-id="5" data-name="Miles Morales 2099" data-price="13990">
+                        <p class="availability in-stock">Raktáron</p>
                         <img id="armoredmiles" src="kepek/pók5figure.png" alt="Pókember" />
                         <h2>Miles Morales 2099</h2>
                         <p>Kattints a leíráshoz.</p>
-                        <span class="price">13990 Ft</span>
-                        <button>Kosárba</button>
+                        <p class="price">13990 Ft</p>
+                        <button class="button add-to-cart">Kosárba</button>
                     </div>
-                    <div class="product">
+                    <div class="product" data-category="out-of-stock"data-id="6" data-name="Black Cat" data-price="13990">
+                        <p class="availability out-of-stock">Kifutott termék</p>
                         <img id="blackcat" src="kepek/blackcatfigure.png" alt="blackcat" />
                         <h2>Black Cat</h2>
                         <p>Kattints a leíráshoz.</p>
-                        <span class="price">13990 Ft</span>
-                        <button>Kosárba</button>
+                        <p class="price">13990 Ft</p>
+                        <button class="button add-to-cart">Kosárba</button>
                     </div>
                 </div>   
             </article>
-            <aside>
-                <h2>Kosár:</h2>
-                <ul>
-                    <li>a kosár tartalma eddit üres :/</li>
-                </ul>
+            <aside class="cart">
+                <h2>Kosár</h2>
+                <ul id="cart-items"></ul>
+                <p id="empty-cart-msg">A kosár tartalma üres.</p>
+                <p>Összesen: <span id="total-price">0</span> Ft</p>
             </aside>
         </main>
-    <footer id="kapcsolat">
-Ivády Barnabás Pókember Boltja
-Elérhető az IKT órákon :).
+    <footer id="kapcsolat">Ivády Barnabás Pókember Boltja Elérhető az IKT órákon :). <br>
+    <p>A figurák a magyar <a href="https://fantasmania.hu/">Fantasmania.hu</a> oldalán illetve a <a href="https://www.bigbadtoystore.com/">BigBadToyStore.com</a> oldalán is megtalálhatóak.</p>
     </footer>
+    <script>
+        let totalPrice = 0;
+        const totalPriceElement = document.getElementById('total-price');
+
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                const product = this.parentElement;
+                const name = product.getAttribute('data-name');
+                const price = parseInt(product.getAttribute('data-price'));
+                const cartItems = document.getElementById('cart-items');
+                const emptyCartMsg = document.getElementById('empty-cart-msg');
+                
+                if (emptyCartMsg) {
+                    emptyCartMsg.style.display = 'none';
+                }
+                
+                const li = document.createElement('li');
+                li.innerHTML = `${name} - ${price} Ft <button class="remove">X</button>`;
+                cartItems.appendChild(li);
+                
+                totalPrice += price;
+                totalPriceElement.textContent = totalPrice;
+                
+                li.querySelector('.remove').addEventListener('click', function() {
+                    li.remove();
+                    totalPrice -= price;
+                    totalPriceElement.textContent = totalPrice;
+                    if (cartItems.children.length === 0) {
+                        emptyCartMsg.style.display = 'block';
+                    }
+                });
+            });
+        });
+        function filterByCategory() {
+        let category = document.getElementById("categoryFilter").value;
+        let products = document.getElementsByClassName("product");
+        for (let product of products) {
+          let productCategory = product.getAttribute("data-category");
+          product.style.display = (category === "all" || productCategory === category) ? "block" : "none";
+        }
+      }
+      
+    </script>
 </body>
 </html>
