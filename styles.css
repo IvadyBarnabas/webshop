@@ -186,8 +186,55 @@ footer a{
 #blackcat:hover{
     content: url('kepek/blackcat.png');
 }
+#mafexspiderman:hover{
+  content: url('kepek/mafexspidermanfigure.png');
+}
+#mafexscarlet:hover{
+  content: url('kepek/mafexscarletfigure.png');
+}
+#futuremafex:hover{
+  content: url('kepek/2099mafexfigure.png');
+}
+#mafexcarnage:hover{
+  content: url('kepek/mafexcarnagefigure.png');
+}
+#andrew:hover{
+  content: url('kepek/andrewgarfieldfigure.png');
+}
+#tobey:hover{
+  content: url('kepek/mafextobymaguirefigure.png');
+}
+#ben:hover{
+  content: url('kepek/benreillyfigure.png');
+}
+#mafexmiles:hover{
+  content: url('kepek/mafexmilesfigure.png');
+}
+#mafexsymbiote:hover{
+  content: url('kepek/mafexsymbiotefigure.png');
+}
+#mafexvenom:hover{
+  content: url('kepek/mafexvenomfigure.png');
+}
 @media screen and (max-width: 1000px) {
   .termekek {
       grid-template-columns: 1fr;
   }
+}
+#backToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: none; /* Alapból elrejtve */
+}
+
+#backToTop:hover {
+  background-color: #0056b3;
 }
